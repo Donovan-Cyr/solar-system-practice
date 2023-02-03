@@ -6,6 +6,15 @@ import { data } from "../data/data";
 
 export function getPlanetsWithMassValue(data, number) {
   // Your code goes here...
+  const planets = data.planets;
+  const planetNames = [];
+  for (var i = 0; i < planets.length; i++) {
+    var MassValue = planets[i].mass;
+    if (MassValue.massValue >= number) {
+      planetNames.push(planets[i].name);
+    }
+  }
+  return planetNames;
 }
 
 

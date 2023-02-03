@@ -6,6 +6,14 @@ import { data } from "../data/data";
 
 export function getPlanetsWithNoMoons(data) {
   // Your code goes here...
+  const planets = data.planets;
+  const planetNames = [];
+  for (var i = 0; i < planets.length; i++) {
+    if (planets[i].hasOwnProperty('moons') === false) {
+     planetNames.push(planets[i].name);
+    }
+  }
+  return planetNames;
 }
 
 

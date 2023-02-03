@@ -6,6 +6,12 @@ import { data } from "../data/data";
 
 export function getEarthData(data) {
   // Your code goes here...
+  const planets = data.planets;
+  for (var i = 0; i < planets.length; i++) {
+    if (planets[i].name.includes('Earth') === true) {
+      return planets[i];
+    }
+  }
 }
 
 
