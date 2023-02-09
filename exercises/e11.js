@@ -7,13 +7,18 @@ import { data } from "../data/data";
 export function lowMoonsPlanets(data) {
   // Your code goes here...
   const planets = data.planets;
-  const planetNames = [];
-  for (var i = 0; i < planets.length; i++) {
-    if (planets[i].hasOwnProperty('moons') === true) {
-      if (planets[i].moons.length < 10) {
-        planetNames.push(planets[i].name);
-      }
+  const planetMoons = planets.filter(hasMoon);
+  const planetNames = planetMoons.map(getName);
+
+  function hasMoon(planet) {
+    if (planet.hasOwnProperty('moons')) {
+      let moonCheck = planet.moons;
+      return moonCheck.length < 10;;
     }
+  }
+
+  function getName(planet) {
+    return planet.name;
   }
   return planetNames;
 }

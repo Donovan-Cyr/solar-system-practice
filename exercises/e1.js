@@ -7,10 +7,16 @@ import { data } from "../data/data";
 export function getPlanetNames(data) {
   // Your code goes here...
   const planets = data.planets;
-  const planetNames = [];
-  for (var i = 0; i < planets.length; i++) {
-    planetNames.push(planets[i].name);
+  const planetNames = planets.map(getNames);
+
+  function getNames(planet) {
+    return planet.name;
   }
+
+  // for (var i = 0; i < planets.length; i++) {
+  //   planetNames.push(planets[i].name);
+  // }
+  
   return planetNames;
 }
 

@@ -6,14 +6,19 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
+
   const planets = data.planets;
-  const planetNames = [];
-  var numberOfMoons = 0;
-  for (var i = 0; i < planets.length; i++) {
-    if (planets[i].hasOwnProperty('moons') === true) {
-      numberOfMoons = numberOfMoons + planets[i].moons.length;
+  let numberOfMoons = 0;
+  const planetMoons = planets.filter(hasMoon);
+  
+  function hasMoon(planet) {
+    if (planet.hasOwnProperty('moons')) {
+      let moonCheck = planet.moons;
+      numberOfMoons = numberOfMoons + moonCheck.length;
+      return moonCheck;
     }
   }
+
   return numberOfMoons;
 }
 

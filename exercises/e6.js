@@ -7,12 +7,23 @@ import { data } from "../data/data";
 export function getAsteroidsDiscoveredAfterYear(data, year) {
   // Your code goes here...
   const asteroids = data.asteroids;
-  const asteroidNames = [];
-  for (var i = 0; i < asteroids.length; i++) {
-    if (asteroids[i].discoveryYear > year) {
-      asteroidNames.push(asteroids[i].name);
-    }
+  const asteroidDiscovered = asteroids.filter(afterYear);
+  const asteroidNames = asteroidDiscovered.map(getName);
+
+  function afterYear(asteroid) {
+    return asteroid.discoveryYear > year;
   }
+
+  function getName(asteroid) {
+    return asteroid.name;
+  }
+
+  // for (var i = 0; i < asteroids.length; i++) {
+  //   if (asteroids[i].discoveryYear > year) {
+  //     asteroidNames.push(asteroids[i].name);
+  //   }
+  // }
+
   return asteroidNames;
 }
 
